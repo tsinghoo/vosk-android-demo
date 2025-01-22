@@ -19,11 +19,16 @@ android {
 
 tasks.register('genUUID') {
     def uuid = UUID.randomUUID().toString()
+    def uuidcn = UUID.randomUUID().toString()
     def odir = file("$buildDir/generated/assets/model-en-us")
+    def odircn = file("$buildDir/generated/assets/vosk-model-small-cn-0.22")
     def ofile = file("$odir/uuid")
+    def ofilecn = file("$odircn/uuid")
     doLast {
         mkdir odir
         ofile.text = uuid
+        mkdir odircn
+        ofilecn.text=uuidcn
     }
 }
 
